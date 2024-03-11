@@ -1,0 +1,25 @@
+load("@rules_python//python:pip.bzl", "compile_pip_requirements")
+load("@rules_python//python:defs.bzl", "py_test")
+load("@my_requirements//:requirements.bzl", "requirement")
+
+compile_pip_requirements(
+    name = "requirements",
+    extra_args = [
+        "--allow-unsafe",
+        "--resolver=backtracking",
+    ],
+    requirements_in = "requirements.in",
+    requirements_txt = "requirements.txt",
+    tags = [
+        "manual",
+    ],
+)
+
+py_test(
+    name = "my_test",
+    srcs = ["my_test.py"],
+    deps = [
+        requirement("fs.sshfs"),
+        requirement("fs.s3fs"),
+    ],
+)
