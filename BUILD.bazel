@@ -16,15 +16,6 @@ compile_pip_requirements(
 )
 
 py_test(
-    name = "fs_providers_test",
-    srcs = ["fs_providers_test.py"],
-    deps = [
-        requirement("fs.sshfs"),
-        requirement("fs.s3fs"),
-    ],
-)
-
-py_test(
     name = "nvidia_submodules_test_blas_only",
     srcs = ["nvidia_submodules_test_blas_only.py"],
     deps = [

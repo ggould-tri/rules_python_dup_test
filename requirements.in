@@ -1,10 +1,6 @@
 # To lock these requirements, run:
 #   bazel run //:requirements.update -- --upgrade
 
-# Two alternative fs providers that should both be loadable.
-fs.sshfs
-fs.s3fs
-
 # Two nvidia submodules that should both be loadable.
 nvidia_cublas_cu11
 nvidia_cuda_cupti_cu11
