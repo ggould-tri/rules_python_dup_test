@@ -16,10 +16,35 @@ compile_pip_requirements(
 )
 
 py_test(
-    name = "my_test",
-    srcs = ["my_test.py"],
+    name = "fs_providers_test",
+    srcs = ["fs_providers_test.py"],
     deps = [
         requirement("fs.sshfs"),
         requirement("fs.s3fs"),
+    ],
+)
+
+py_test(
+    name = "nvidia_submodules_test_blas_only",
+    srcs = ["nvidia_submodules_test_blas_only.py"],
+    deps = [
+        requirement("nvidia_cublas_cu11"),
+    ],
+)
+
+py_test(
+    name = "nvidia_submodules_test_cuda_cupti_only",
+    srcs = ["nvidia_submodules_test_cuda_cupti_only.py"],
+    deps = [
+        requirement("nvidia_cuda_cupti_cu11"),
+    ],
+)
+
+py_test(
+    name = "nvidia_submodules_test",
+    srcs = ["nvidia_submodules_test.py"],
+    deps = [
+        requirement("nvidia_cublas_cu11"),
+        requirement("nvidia_cuda_cupti_cu11"),
     ],
 )
